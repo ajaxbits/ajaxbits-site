@@ -1,0 +1,15 @@
+{{ define "main" }}
+<section>
+  <h2>Articles</h2>
+  <ul>
+    {{ range where .Site.RegularPages "Type" "posts" }}
+    <li>
+      <article>
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p>{{ .Summary }}</p>
+      </article>
+    </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}

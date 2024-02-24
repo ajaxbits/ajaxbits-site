@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  {{- partial "head.html" . -}}
+  <body>
+    {{- partial "header.html" . -}}
+    <main>{{- block "main" . }}{{- end }}</main>
+    
+  <script>hljs.highlightAll();</script>
+  </body>
+  {{- partial "footer.html" . -}}
+</html>

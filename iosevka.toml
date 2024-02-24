@@ -1,0 +1,75 @@
+[buildPlans.IosevkaAjaxbits]
+family = "Ajaxbits Iosevka"
+spacing = "quasi-proportional"
+serifs = "sans"
+noCvSs = true
+exportGlyphNames = false
+noLigation = true
+
+[buildPlans.IosevkaAjaxbits.variants.design]
+capital-q = "crossing"
+capital-z = "straight-serifless-with-horizontal-crossbar"
+a = "double-storey-serifed"
+g = "single-storey-flat-hook-serifless"
+z = "straight-serifless-with-horizontal-crossbar"
+one = "base"
+seven = "straight-serifless-crossbar"
+asterisk = "penta-low"
+underscore = "above-baseline"
+caret = "low"
+paren = "normal"
+brace = "curly-flat-boundary"
+guillemet = "straight"
+number-sign = "upright"
+at = "fourfold"
+dollar = "through-cap"
+percent = "rings-segmented-slash"
+bar = "natural-slope"
+question = "corner-flat-hooked"
+
+[buildPlans.IosevkaAjaxbits.variants.italic]
+capital-q = "open-swash"
+capital-z = "cursive"
+a = "double-storey-serifed"
+f = "diagonal-tailed"
+g = "double-storey-open"
+i = "serifed-diagonal-tailed"
+j = "serifed"
+k = "diagonal-tailed-cursive-serifless"
+q = "diagonal-tailed-motion-serifed"
+t = "bent-hook"
+v = "cursive-serifless"
+w = "cursive-serifless"
+x = "chancery"
+z = "cursive"
+one = "base"
+seven = "straight-serifless-crossbar"
+asterisk = "penta-low"
+underscore = "above-baseline"
+caret = "low"
+paren = "normal"
+brace = "curly-flat-boundary"
+guillemet = "straight"
+number-sign = "upright"
+at = "fourfold"
+dollar = "through-cap"
+percent = "rings-segmented-slash"
+bar = "natural-slope"
+question = "corner-flat-hooked"
+
+[buildPlans.IosevkaAjaxbits.widths.Normal]
+shape = 500
+menu = 5
+css = "normal"
+
+[buildPlans.IosevkaAjaxbits.slopes.Upright]
+angle = 0
+shape = "upright"
+menu = "upright"
+css = "normal"
+
+[buildPlans.IosevkaAjaxbits.slopes.Italic]
+angle = 9.4
+shape = "italic"
+menu = "italic"
+css = "italic"

@@ -1,0 +1,8 @@
+:root {
+    --victor-mono-family: "Victor Mono";
+}
+@font-face {
+  font-family: "Victor Mono";
+  font-weight: "normal";
+  src: url(/fonts/VictorMono-Medium.woff2);
+}

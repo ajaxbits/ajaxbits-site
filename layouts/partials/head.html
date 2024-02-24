@@ -1,0 +1,14 @@
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://unpkg.com/sanitize.css" />
+  <link href="https://unpkg.com/sanitize.css/typography.css" rel="stylesheet" />
+  <link href="https://unpkg.com/sanitize.css/forms.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="/css/demo-styling.css" />
+  {{ $title := print .Site.Title " | " .Title }} {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
+  <title>{{ $title }}</title>
+</head>
