@@ -25,7 +25,7 @@
     ++ optional buildDrafts "--buildDrafts"
   );
 
-  buildFonts =
+  buildFontsCommand =
     if buildFonts
     then ''
       cp -r ${iosevka}/woff2/* static/fonts/.
@@ -39,7 +39,7 @@ in
     name = "ajaxbits";
     buildInputs = with pkgs; [nodePackages.prettier];
     buildPhase = ''
-      ${buildFonts}
+      ${buildFontsCommand}
       ${buildCommand}
       ${pkgs.nodePackages.prettier}/bin/prettier -w public '!**/*.{js,css}'
     '';
