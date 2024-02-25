@@ -30,17 +30,17 @@ in
     buildPhase = ''
       export HOME=$TMPDIR
       runHook preBuild
-      npm run build --no-update-notifier -- --verbose=9 webfont::$pname
+      npm run build --no-update-notifier -- --jCmd=$NIX_BUILD_CORES --verbose=9 woff2::$pname
       runHook postBuild
     '';
 
-    # installPhase = ''
-    #   runHook preInstall
-    #   fontdir="$out/share/fonts/truetype"
-    #   install -d "$fontdir"
-    #   install "dist/$pname/ttf"/* "$fontdir"
-    #   runHook postInstall
-    # '';
+    installPhase = ''
+      runHook preInstall
+      fontdir="$out/woff2"
+      install -d "$fontdir"
+      install "dist/$pname/woff2"/* "$fontdir"
+      runHook postInstall
+    '';
 
     enableParallelBuilding = true;
   }

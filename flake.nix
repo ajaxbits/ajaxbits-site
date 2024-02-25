@@ -23,8 +23,8 @@
       }: {
         packages = {
           default = self'.packages.prod;
-          prod = pkgs.callPackage ./nix/blog.nix {};
-          staging = pkgs.callPackage ./nix/blog.nix {buildDrafts = true;};
+          prod = pkgs.callPackage ./nix/blog.nix {iosevka = self'.packages.fonts;};
+          staging = pkgs.callPackage ./nix/blog.nix {buildDrafts = true; buildFonts = false;};
           fonts = pkgs.callPackage ./nix/iosevka.nix {};
         };
 
@@ -39,4 +39,12 @@
         };
       };
     };
+
+  nixConfig = {
+    extra-substituters = ["https://cache.garnix.io"];
+
+    extra-trusted-public-keys = [
+      "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+    ];
+  };
 }

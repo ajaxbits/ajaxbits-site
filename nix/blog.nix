@@ -2,6 +2,8 @@
   pkgs,
   lib,
   buildDrafts ? false,
+  buildFonts ? true,
+  iosevka ? null,
   ...
 }: let
   inherit (lib) concatStringsSep optional;
@@ -22,12 +24,22 @@
     ["${pkgs.hugo}/bin/hugo"]
     ++ optional buildDrafts "--buildDrafts"
   );
+
+  buildFonts =
+    if buildFonts
+    then ''
+      cp -r ${iosevka}/woff2/* static/fonts/.
+    ''
+    else "";
 in
+  assert buildFonts == true -> iosevka != null;
+
   pkgs.stdenv.mkDerivation {
     inherit src;
     name = "ajaxbits";
     buildInputs = with pkgs; [nodePackages.prettier];
     buildPhase = ''
+      ${buildFonts}
       ${buildCommand}
       ${pkgs.nodePackages.prettier}/bin/prettier -w public '!**/*.{js,css}'
     '';
