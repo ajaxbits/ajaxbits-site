@@ -1,0 +1,9 @@
+html {
+  background: violet;
+  font-family: var(--main-family);
+  min-height: 100%;
+}
+
+code {
+  font-family: var(--code-family);
+}

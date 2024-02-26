@@ -31,8 +31,10 @@
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
             alejandra
+            bun
             hugo
             just
+            tailwindcss
             nixd
             nodePackages.prettier
           ];
