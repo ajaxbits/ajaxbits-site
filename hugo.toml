@@ -2,6 +2,17 @@ baseURL = 'https://ajaxbits.com/'
 languageCode = 'en-us'
 title = 'ajaxbits'
 
+[markup]
+  [markup.highlight]
+    codeFences = true
+    anchorLineNos = true
+    lineAnchors = "code-line"
+    lineNoStart = 1
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = true
+    style = "rose-pine-moon"
+
 [build.buildStats]
 enable = true
 [[build.cachebusters]]
