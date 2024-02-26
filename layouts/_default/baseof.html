@@ -1,11 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   {{- partial "head.html" . -}}
-  <body>
+  <body
+    class="bg-main-light p-4 text-main-dark md:p-6 lg:p-8 lg:text-lg xl:mx-auto xl:max-w-4xl xl:p-10 2xl:max-w-6xl dark:bg-main-dark dark:text-main-light">
     {{- partial "header.html" . -}}
     <main>{{- block "main" . }}{{- end }}</main>
-    
-  <script>hljs.highlightAll();</script>
+
+    <script>
+      hljs.highlightAll();
+    </script>
   </body>
   {{- partial "footer.html" . -}}
 </html>

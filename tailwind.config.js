@@ -1,8 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: "class",
   content: ["./layouts/**/*.html"],
   theme: {
+    colors: {
+      main: {
+        light: "#cecbef",
+        dark: "#4b0082",
+      },
+    },
     extend: {
       typography: {
         quoteless: {
@@ -28,8 +33,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require("postcss-import"),
-    require("@tailwindcss/typography")
-  ],
+  plugins: [require("postcss-import"), require("@tailwindcss/typography")],
 };
