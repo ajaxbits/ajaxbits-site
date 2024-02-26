@@ -13,9 +13,9 @@
 
   originalSource = gitTracked root;
   additionalIgnores = unions [
-    "flake.nix"
-    "flake.lock"
-    ".vscode"
+    ../flake.nix
+    ../flake.lock
+    ../.vscode
   ];
 
   src = toSource {
@@ -39,11 +39,13 @@ in
     pkgs.stdenv.mkDerivation {
       inherit src;
       name = "ajaxbits";
-      buildInputs = with pkgs; [nodePackages.prettier];
+      buildInputs = with pkgs; [bun nodePackages.prettier tailwindcss];
       buildPhase = ''
+        bun install
         ${buildFontsCommand}
+        tailwindcss -i assets/css/main.css -o static/css/styles.css
         ${buildCommand}
-        ${pkgs.nodePackages.prettier}/bin/prettier -w public '!**/*.{js,css}'
+        prettier -w public '!**/*.{js,css}'
       '';
       installPhase = "cp -r public $out";
     }
