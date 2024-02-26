@@ -20,6 +20,16 @@ article .post-content {
     margin-top: 0;
   }
 
+  li {
+    list-style-type: disc;
+    list-style-position: inside;
+  }
+
+  ol,
+  ul {
+    margin-bottom: 1em;
+  }
+
   blockquote {
     font-style: italic;
     margin: 1em 0;

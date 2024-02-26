@@ -7,7 +7,7 @@
   ...
 }: let
   inherit (lib) concatStringsSep optional;
-  inherit (lib.fileset) difference gitTracked toSource unions;
+  inherit (lib.fileset) difference gitTracked toSource union unions;
 
   root = ../.;
 
@@ -24,7 +24,7 @@
   };
 
   buildCommand = concatStringsSep " " (
-    ["${pkgs.hugo}/bin/hugo"]
+    ["hugo"]
     ++ optional buildDrafts "--buildDrafts"
   );
 
@@ -39,7 +39,7 @@ in
     pkgs.stdenv.mkDerivation {
       inherit src;
       name = "ajaxbits";
-      buildInputs = with pkgs; [bun nodePackages.prettier tailwindcss];
+      buildInputs = with pkgs; [bun hugo git nodePackages.prettier tailwindcss];
       buildPhase = ''
         bun install
         ${buildFontsCommand}
