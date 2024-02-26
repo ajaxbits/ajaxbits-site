@@ -4,7 +4,9 @@ date = 2024-02-24T16:06:20-06:00
 draft = true
 +++
 
-> Disclaimer: I wrote this initially for an interview, but I ended up really liking it so you also get to read it.
+{{< callout >}}
+Disclaimer: I wrote this initially for an interview, but I ended up really liking it so you also get to read it.
+{{< /callout >}}
 
 Image conversion on the web is an incredibly common task. There are thousands of methods and [hundreds](https://www.npmjs.com/search?q=image+manipulation) of libraries available that get it done.
 
