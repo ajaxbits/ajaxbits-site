@@ -6,6 +6,7 @@
 
 /* Component layer */
 @import "tailwindcss/components";
+@import "./articles.css";
 
 /* Utilities layer */
 @import "tailwindcss/utilities";
