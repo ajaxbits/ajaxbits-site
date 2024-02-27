@@ -89,16 +89,16 @@ pkgs.stdenv.mkDerivation {
     src = ./.;
     buildInputs = with pkgs; [hugo git nodePackages.prettier tailwindcss];
     buildPhase = ''
-    runHook preBuild
+        runHook preBuild
 
-    cp -r ${nodeDeps}/node_modules ./.
-    # inject deps here ☝️
+        cp -r ${nodeDeps}/node_modules ./.
+        # inject deps here ☝️
 
-    tailwindcss -i assets/css/main.css -o static/css/styles.css
-    hugo
-    prettier -w public '!**/*.{js,css}'
+        tailwindcss -i assets/css/main.css -o static/css/styles.css
+        hugo
+        prettier -w public '!**/*.{js,css}'
 
-    runHook postBuild
+        runHook postBuild
     '';
     installPhase = "cp -r public $out";
 }
