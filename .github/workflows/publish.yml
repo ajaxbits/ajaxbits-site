@@ -16,5 +16,6 @@ jobs:
             substituters = https://cache.garnix.io?priority=41 https://cache.nixos.org/
       - uses: DeterminateSystems/magic-nix-cache-action@main
       - run: nix build .
-      - run: nix run .#netlify -- deploy --prod --site ajaxbits-site --auth ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      - run: nix develop .#deploy
+      - run: netlify deploy --prod --site ajaxbits-site --auth ${{ secrets.NETLIFY_AUTH_TOKEN }}
         working-directory: ./result
