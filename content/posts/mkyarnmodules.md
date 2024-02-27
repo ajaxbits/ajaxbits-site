@@ -95,7 +95,7 @@ pkgs.stdenv.mkDerivation {
     # inject deps here ☝️
 
     tailwindcss -i assets/css/main.css -o static/css/styles.css
-    hugohttps://github.com/nix-community/dream2nix
+    hugo
     prettier -w public '!**/*.{js,css}'
 
     runHook postBuild
