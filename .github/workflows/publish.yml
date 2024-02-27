@@ -19,8 +19,7 @@ jobs:
       - run: nix develop .#deploy
       - run: |
           netlify deploy \
-              --dir=./. \
+              --dir=$(readlink --canonicalize result) \
               --prod \
               --site ${{ secrets.NETLIFY_SITE_ID }} \
               --auth ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        working-directory: ./result
