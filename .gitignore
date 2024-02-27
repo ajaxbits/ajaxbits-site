@@ -1,3 +1,7 @@
+### General ###
+# Prefer fresh tailwind style generation during build
+static/css/styles.css
+
 ### direnv ###
 .direnv
 .envrc
