@@ -6,7 +6,7 @@ tags = ["til", "web", "js"]
 +++
 
 {{< callout >}}
-I wrote this for an interview process that didn't work out -- but I learned something from writing this up. Hope you do too.  <br>
+I wrote this for an interview process that didn't work out, but I learned something from writing this up. Hope you do too.  <br>
 &#8212; a
 {{< /callout >}}
 
