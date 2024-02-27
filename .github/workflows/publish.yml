@@ -17,5 +17,10 @@ jobs:
       - uses: DeterminateSystems/magic-nix-cache-action@main
       - run: nix build .
       - run: nix develop .#deploy
-      - run: netlify deploy --prod --site ajaxbits-site --auth ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      - run: |
+          netlify deploy \
+              --dir=./. \
+              --prod \
+              --site ajaxbits-site \
+              --auth ${{ secrets.NETLIFY_AUTH_TOKEN }}
         working-directory: ./result
