@@ -24,3 +24,6 @@ node_modules
 
 ### Nix ###
 result
+
+# Local Netlify folder
+.netlify

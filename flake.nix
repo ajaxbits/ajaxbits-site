@@ -29,6 +29,7 @@
             buildFonts = false;
           };
           fonts = pkgs.callPackage ./nix/iosevka.nix {};
+          netlify = pkgs.netlify-cli;
         };
 
         devShells.default = pkgs.mkShell {
