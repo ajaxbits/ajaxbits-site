@@ -1,12 +1,13 @@
 +++
 title = 'Easy PNG conversion natively in the browser'
-date = 2024-02-24T16:06:20-06:00
-draft = true
+date = 2024-02-26T23:43:20-06:00
+draft = false
 tags = ["til", "web", "js"]
 +++
 
 {{< callout >}}
-This got me dropped from an interview, but I ended up really liking it so you also get to read it.
+I wrote this for an interview process that didn't work out -- but I learned something from writing this up. Hope you do too.  <br>
+&#8212; a
 {{< /callout >}}
 
 Say you want to convert PNG to JPEG in the browser. We have a form for users to submit PNG files that looks something like this:
@@ -22,8 +23,6 @@ Say you want to convert PNG to JPEG in the browser. We have a form for users to 
 We'd rather not have to deal with additional dependencies, wait for responses from our server, or shell out to operating system processes for our simple use case.
 
 Is there an easy, native way to transcode a user-supplied image from PNG to JPEG? Can we do this on the client?
-
-## Solution
 
 The `OffscreenCanvas` [browser API](https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas) provides an efficient, client-side solution for image conversion. Here's how we can use it.
 
@@ -112,11 +111,6 @@ Using the `OffscreenCanvas` API for image transcoding on the client offers sever
 However, there are tradeoffs to consider. One of the biggest is image codec compatibility. While all modern browsers support the `convertToBlob` method with `image/jpeg` and `image/png` encodings, not every codec is supported.[^2] Notably, `image/webp` is [not yet available](https://caniuse.com/mdn-api_offscreencanvas_converttoblob_option_type_parameter_webp) in Safari. And of course, the `OffscreenCanvas` browser API is not available _at all_ for Node.js. Therefore, if you need additional codecs or Node support, the `sharp` [module](https://www.npmjs.com/package/sharp) might be the way to go.
 
 Even with these tradeoffs in mind, `OffscreenCanvas` remains an effective solution for many use cases.
-
-Whenever I'm putting together a quick project and I need something to "just work," this is a great trick to have up my sleeve!
-
-
----
 
 [^1]: `OffscreenCanvas` is also great because it is decoupled from the DOM and can be run in a [web worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers) context, allowing you to run image manipulation operations on another thread.
 

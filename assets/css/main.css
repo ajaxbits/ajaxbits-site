@@ -1,6 +1,5 @@
 /* Base layer */
 @import "tailwindcss/base";
-@import url(https://fonts.bunny.net/css?family=atkinson-hyperlegible:400,400i,700,700i);
 @import "./base.css";
 @import "./fonts.css";
 
