@@ -1,25 +1,15 @@
 +++
-title = 'Easy Client-Side Image Conversion with Browser APIs'
+title = 'Easy PNG conversion natively in the browser'
 date = 2024-02-24T16:06:20-06:00
 draft = true
 tags = ["til", "web", "js"]
 +++
 
 {{< callout >}}
-I wrote this initially for an interview, but I ended up really liking it so you also get to read it.
+This got me dropped from an interview, but I ended up really liking it so you also get to read it.
 {{< /callout >}}
 
-Image conversion on the web is an incredibly common task. There are thousands of methods and [hundreds](https://www.npmjs.com/search?q=image+manipulation) of libraries available that get it done.
-
-But what if you just can't be bothered with all that?
-
-What if you're banging out a prototype, an MVP, or simply want to get something working quickly? What if you don't want to add _another_ dependency to your project just to do basic image conversion?
-
-Well, you're in luck! Here's a quick, portable recipe to easily transcode an image using native browser APIs and vanilla JavaScript.
-
-## Problem
-
-Suppose our web app does image conversion from PNG to JPEG. We have a form for users to submit PNG files that looks something like this:
+Say you want to convert PNG to JPEG in the browser. We have a form for users to submit PNG files that looks something like this:
 
 ```html
 <form id="converter" action="#" method="post" enctype="multipart/form-data">

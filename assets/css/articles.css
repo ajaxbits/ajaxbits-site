@@ -1,47 +1,6 @@
 article .post-content {
-  line-height: 1.6;
-
-  p {
-    hyphens: auto;
-    margin-bottom: 1em;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin-top: 2em;
-    margin-bottom: 1em;
-  }
-
-  *:first-child > p {
-    margin-top: 0;
-  }
-
-  li {
-    list-style-type: disc;
-    list-style-position: inside;
-  }
-
-  ol,
-  ul {
-    margin-bottom: 1em;
-  }
-
-  blockquote {
-    font-style: italic;
-    margin: 1em 0;
-    padding-left: 2em;
-    border-left: 4px solid #ccc;
-    color: #666;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    blockquote {
-      border-left-color: #999;
-      color: #cbcbcb;
-    }
+  .highlight div,
+  .highlight pre {
+    overflow-x: auto;
   }
 }

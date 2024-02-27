@@ -2,6 +2,10 @@
 module.exports = {
   content: ["./layouts/**/*.html"],
   theme: {
+    fontFamily: {
+      mono: ["Iosevka", "monospace"],
+      sans: ["Atkinson Hyperlegible", "sans-serif"],
+    },
     colors: {
       main: {
         light: "#f6f6f6",

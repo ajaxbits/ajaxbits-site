@@ -1,15 +1,14 @@
 {{ define "main" }}
 <section>
   <h2>Articles</h2>
-  <ul>
+  <ul class="min-h-72">
     {{ range where .Site.RegularPages "Type" "posts" }}
-    <li>
-      <article>
-        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-        <p>{{ .Summary }}</p>
-      </article>
+    <li class="flex w-full list-inside list-disc justify-between mb-2">
+      <a class="text-xl underline underline-offset-2" href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <p class="text-sm italic">{{.Date.Format "01/01/06"}}</p>
     </li>
     {{ end }}
   </ul>
 </section>
 {{ end }}
+
