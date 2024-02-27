@@ -1,5 +1,7 @@
 {
-  "devDependencies": {
+  "name": "ajaxbitsSiteDeps",
+  "version": "0.0.0",
+  "dependencies": {
     "@tailwindcss/typography": "^0.5.10",
     "postcss-import": "^16.0.1",
     "prettier-plugin-tailwindcss": "^0.5.11"

@@ -1,12 +1,11 @@
 default: dev
 
-    
 dev-tailwind:
     tailwindcss -i assets/css/main.css -o static/css/styles.css --watch=always
 
 dev-server:
     hugo server --buildDrafts
-    
+
 dev:
     #!/bin/sh
     just dev-tailwind &
@@ -21,3 +20,6 @@ get-fonts:
     nix build .#fonts
     sudo cp -r result/woff2/* static/fonts/.
     sudo chown $USER static/fonts/*
+
+pin-npm-deps:
+    bun install --yarn

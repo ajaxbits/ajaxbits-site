@@ -7,7 +7,7 @@
   ...
 }: let
   inherit (lib) concatStringsSep optional;
-  inherit (lib.fileset) difference gitTracked toSource union unions;
+  inherit (lib.fileset) difference gitTracked toSource unions;
 
   root = ../.;
 
@@ -16,11 +16,22 @@
     ../flake.nix
     ../flake.lock
     ../.vscode
+    ../.prettierrc
+    ../bun.lockb
+    ../garnix.yaml
+    ../justfile
   ];
 
   src = toSource {
     inherit root;
     fileset = difference originalSource additionalIgnores;
+  };
+
+  nodeDeps = pkgs.mkYarnModules {
+    pname = "ajaxbitsNodeModules";
+    packageJSON = ../package.json;
+    yarnLock = ../yarn.lock;
+    version = "0.0.0";
   };
 
   buildCommand = concatStringsSep " " (
@@ -39,13 +50,20 @@ in
     pkgs.stdenv.mkDerivation {
       inherit src;
       name = "ajaxbits";
-      buildInputs = with pkgs; [bun hugo git nodePackages.prettier tailwindcss];
+      buildInputs = with pkgs; [hugo git nodePackages.prettier tailwindcss];
       buildPhase = ''
-        bun install
+        runHook preBuild
+
         ${buildFontsCommand}
+
+        cp -r ${nodeDeps}/node_modules ./.
         tailwindcss -i assets/css/main.css -o static/css/styles.css
+
         ${buildCommand}
+
         prettier -w public '!**/*.{js,css}'
+
+        runHook postBuild
       '';
       installPhase = "cp -r public $out";
     }

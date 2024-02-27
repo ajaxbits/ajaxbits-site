@@ -24,7 +24,10 @@
         packages = {
           default = self'.packages.prod;
           prod = pkgs.callPackage ./nix/blog.nix {iosevka = self'.packages.fonts;};
-          staging = pkgs.callPackage ./nix/blog.nix {buildDrafts = true; buildFonts = false;};
+          staging = pkgs.callPackage ./nix/blog.nix {
+            buildDrafts = true;
+            buildFonts = false;
+          };
           fonts = pkgs.callPackage ./nix/iosevka.nix {};
         };
 
