@@ -15,6 +15,9 @@ module.exports = {
       },
     },
     extend: {
+      gridTemplateColumns: {
+        "header": "1fr 5fr 1fr",
+      },
       typography: ({ theme }) => ({
         DEFAULT: {
           css: {
