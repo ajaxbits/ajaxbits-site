@@ -1,13 +1,12 @@
 {
   pkgs,
   lib,
-  system,
   buildDrafts ? false,
   buildFonts ? true,
   iosevka ? null,
   ...
 }: let
-  inherit (lib) concatStringsSep optional optionals;
+  inherit (lib) concatStringsSep optional;
   inherit (lib.fileset) difference gitTracked toSource unions;
 
   root = ../.;
@@ -51,14 +50,7 @@ in
     pkgs.stdenv.mkDerivation {
       inherit src;
       name = "ajaxbits";
-      buildInputs = with pkgs;
-        [
-          hugo
-          git
-          nodePackages.prettier
-          tailwindcss
-        ]
-        ++ lib.optionals stdenv.isDarwin [pkgs.openssl];
+      buildInputs = with pkgs; [hugo git nodePackages.prettier tailwindcss];
       buildPhase = ''
         runHook preBuild
 
