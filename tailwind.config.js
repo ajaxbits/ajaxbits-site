@@ -16,7 +16,7 @@ module.exports = {
     },
     extend: {
       gridTemplateColumns: {
-        "header": "1fr 5fr 1fr",
+        header: "1fr 5fr 1fr",
       },
       typography: ({ theme }) => ({
         DEFAULT: {
@@ -35,6 +35,7 @@ module.exports = {
             "--tw-prose-invert-bullets": theme("colors.main.lightGrey"),
             "--tw-prose-invert-hr": theme("colors.main.lightGrey"),
 
+            "article > section > p:first-of-type": { marginTop: "0" },
             "blockquote p:first-of-type::before": { content: "none" },
             "blockquote p:first-of-type::after": { content: "none" },
             "code::before": { content: "none" },
