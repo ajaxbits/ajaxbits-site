@@ -67,7 +67,21 @@
             }
         ));
       in {
-        prod = mkBlog "prod";
+        prod = withSystem "x86_64-linux" (
+          {
+            config,
+            system,
+            ...
+          }:
+            nixpkgs.lib.nixosSystem {
+              inherit system;
+              specialArgs = {
+                tier = "prod";
+                inherit (config) packages;
+              };
+              modules = [./nix/server];
+            }
+        );
         staging = mkBlog "staging";
       };
     });
