@@ -6,6 +6,7 @@
   };
 
   outputs = {
+    self,
     systems,
     nixpkgs,
     flake-parts,
@@ -23,10 +24,6 @@
           default = self'.packages.prod;
           prod = pkgs.callPackage ./nix/blog.nix {iosevka = self'.packages.fonts;};
           staging = pkgs.callPackage ./nix/blog.nix {
-            iosevka = self'.packages.fonts;
-            buildDrafts = true;
-          };
-          dev = pkgs.callPackage ./nix/blog.nix {
             buildDrafts = true;
             buildFonts = false;
           };
@@ -50,26 +47,18 @@
         };
       };
 
-      flake.nixosConfigurations = let
-        mkBlog = tier: (withSystem "x86_64-linux" (
-          {
-            config,
-            system,
-            ...
-          }:
-            nixpkgs.lib.nixosSystem {
-              inherit system;
-              specialArgs = {
-                inherit tier;
-                inherit (config) packages;
-              };
-              modules = [./nix/server];
-            }
-        ));
-      in {
-        prod = mkBlog "prod";
-        staging = mkBlog "staging";
-      };
+      flake.nixosConfigurations.blog = withSystem "x86_64-linux" (
+        {
+          config,
+          system,
+          ...
+        }:
+          nixpkgs.lib.nixosSystem {
+            inherit system;
+            specialArgs.packages = config.packages;
+            modules = [./nix/server.nix];
+          }
+      );
     });
 
   nixConfig = {
