@@ -2,7 +2,4 @@ servers:
   - configuration: prod
     deployment:
       type: on-branch
-      branch: prod
-  - configuration: staging
-    deployment:
-      type: on-pull-request
+      branch: deploy
