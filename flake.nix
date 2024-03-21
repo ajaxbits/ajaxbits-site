@@ -47,18 +47,20 @@
         };
       };
 
-      flake.nixosConfigurations.blog = withSystem "x86_64-linux" (
-        {
-          config,
-          system,
-          ...
-        }:
-          nixpkgs.lib.nixosSystem {
-            inherit system;
-            specialArgs.packages = config.packages;
-            modules = [./nix/server.nix];
+      flake.nixosConfigurations.blog = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          {
+            services.openssh.enable = true;
+            networking.firewall.enable = false;
+            fileSystems."/" = {
+              device = "/dev/sda1";
+              fsType = "ext4";
+            };
+            boot.loader.grub.device = "/dev/sda";
           }
-      );
+        ];
+      };
     });
 
   nixConfig = {
