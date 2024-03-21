@@ -6,7 +6,6 @@
   };
 
   outputs = {
-    self,
     systems,
     nixpkgs,
     flake-parts,
@@ -47,19 +46,24 @@
         };
       };
 
-      flake.nixosConfigurations.wow = withSystem "x86_64-linux" (
-        {
-          config,
-          system,
-          ...
-        }:
-          nixpkgs.lib.nixosSystem {
-            inherit system;
-            specialArgs.packages = config.packages;
-            specialArgs.tier = "prod";
-            modules = [./nix/server];
-          }
-      );
+      flake.nixosConfigurations = let
+        mkBlog = tier:
+          withSystem "x86_64-linux" (
+            {
+              config,
+              system,
+              ...
+            }:
+              nixpkgs.lib.nixosSystem {
+                inherit system;
+                specialArgs.packages = config.packages;
+                specialArgs.tier = tier;
+                modules = [./nix/server];
+              }
+          );
+      in {
+        wow = mkBlog "prod";
+      };
     });
 
   nixConfig = {
