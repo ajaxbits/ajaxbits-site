@@ -38,7 +38,7 @@
             hugo
             just
             tailwindcss
-            nixd
+            nix-output-monitor
             nodePackages.prettier
           ];
         };

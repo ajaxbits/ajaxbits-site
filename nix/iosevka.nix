@@ -8,6 +8,7 @@ in
     pname = "IosevkaAjaxbits";
     version = "27.3.5";
 
+    nodejs = pkgs.nodejs_20;
     src = pkgs.fetchFromGitHub {
       owner = "be5invis";
       repo = "iosevka";
