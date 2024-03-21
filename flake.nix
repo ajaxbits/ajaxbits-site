@@ -70,6 +70,7 @@
         blog = mkBlog "prod";
         staging = mkBlog "staging";
       };
+
     });
 
   nixConfig = {
