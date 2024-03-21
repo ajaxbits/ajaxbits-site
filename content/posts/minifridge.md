@@ -26,7 +26,7 @@ From top to bottom:
 - Home Assistant Box: [Raspberry Pi 5](https://archive.is/Ra42a), [Argon NEO 5 NVME](https://archive.ph/s22qJ) case, 8GB RAM
 - Main homelab box: [Lenovo ThinkCentre M90q Tiny Gen 3](), i7-12700T, 64GB RAM, NixOS
 
-There's all sorts of other goodies in there like my 
+There's all sorts of other goodies in there like my temperature sensor.
 
 
 
