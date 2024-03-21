@@ -2,5 +2,10 @@ builds:
  exclude: []
  include:
  - '*.x86_64-linux.*'
- - 'packages.aarch64-darwin.*'
  - 'devShell.aarch64-darwin.*'
+
+servers:
+  - configuration: blog
+    deployment:
+      type: on-branch
+      branch: deploy

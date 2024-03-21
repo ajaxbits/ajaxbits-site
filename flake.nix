@@ -12,12 +12,11 @@
     flake-parts,
     ...
   } @ inputs:
-    flake-parts.lib.mkFlake {inherit inputs;} {
+    flake-parts.lib.mkFlake {inherit inputs;} ({withSystem, ...}: {
       systems = import inputs.systems;
 
       perSystem = {
         pkgs,
-        system,
         self',
         ...
       }: {
@@ -42,12 +41,20 @@
             nodePackages.prettier
           ];
         };
-        
+
         devShells.deploy = pkgs.mkShell {
-          buildInputs = [ pkgs.netlify-cli ];
+          buildInputs = [pkgs.netlify-cli];
         };
       };
-    };
+
+      flake.nixosConfigurations.blog = withSystem "x86_64-linux" (
+        {config, ...}:
+          nixpkgs.lib.nixosSystem {
+            specialArgs.packages = config.packages;
+            modules = [./nix/server.nix];
+          }
+      );
+    });
 
   nixConfig = {
     extra-substituters = ["https://cache.garnix.io"];
