@@ -67,8 +67,8 @@
             }
         ));
       in {
-        blogProd = mkBlog "prod";
-        blogStaging = mkBlog "staging";
+        prod = mkBlog "prod";
+        staging = mkBlog "staging";
       };
     });
 
