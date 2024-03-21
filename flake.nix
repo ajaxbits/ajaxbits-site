@@ -56,7 +56,8 @@
           nixpkgs.lib.nixosSystem {
             inherit system;
             specialArgs.packages = config.packages;
-            modules = [./nix/server.nix];
+            specialArgs.tier = "prod";
+            modules = [./nix/server];
           }
       );
     });
