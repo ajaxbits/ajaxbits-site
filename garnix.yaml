@@ -1,5 +1,5 @@
 servers:
-  - configuration: prod
+  - configuration: yippee
     deployment:
       type: on-branch
       branch: deploy
