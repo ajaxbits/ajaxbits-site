@@ -63,6 +63,7 @@
           );
       in {
         wow = mkBlog "prod";
+        yo = mkBlog "staging";
       };
     });
 
