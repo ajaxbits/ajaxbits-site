@@ -6,7 +6,7 @@ in {
     root = packages.prod;
   };
   networking = {
-    hostname = "blog";
+    hostName = "blog";
     firewall.allowedTCPPorts = [port];
   };
   fileSystems."/" = {

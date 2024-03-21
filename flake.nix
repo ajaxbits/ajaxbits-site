@@ -48,8 +48,13 @@
       };
 
       flake.nixosConfigurations.blog = withSystem "x86_64-linux" (
-        {config, ...}:
+        {
+          config,
+          system,
+          ...
+        }:
           nixpkgs.lib.nixosSystem {
+            inherit system;
             specialArgs.packages = config.packages;
             modules = [./nix/server.nix];
           }
