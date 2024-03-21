@@ -9,6 +9,7 @@ in {
     hostName = "blog";
     firewall.allowedTCPPorts = [port];
   };
+
   fileSystems."/" = {
     device = "/dev/sda1";
     fsType = "ext4";
