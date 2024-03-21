@@ -1,11 +1,8 @@
-builds:
- exclude: []
- include:
- - '*.x86_64-linux.*'
- - 'devShell.aarch64-darwin.*'
-
 servers:
-  - configuration: blog
+  - configuration: prod
     deployment:
       type: on-branch
       branch: deploy
+  - configuration: staging
+    deployment:
+      type: on-pull-request
