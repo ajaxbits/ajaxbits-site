@@ -1,8 +1,8 @@
 builds:
- exclude: []
- include:
- - '*.x86_64-linux.*'
- - 'devShell.aarch64-darwin.*'
+  exclude: []
+  include:
+  - '*.x86_64-linux.*'
+  # - 'devShells.aarch64-darwin.*'
 
 servers:
   - configuration: blog
