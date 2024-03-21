@@ -1,9 +1,10 @@
 {packages, ...}: let
-  port = 8787;
+  port = 80;
 in {
   services.static-web-server = {
     enable = true;
     root = packages.prod;
+    listen = "[::]:${toString port}";
   };
   networking = {
     hostName = "blog";
