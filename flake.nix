@@ -62,8 +62,8 @@
               }
           );
       in {
-        wow = mkBlog "prod";
-        yo = mkBlog "staging";
+        prod = mkBlog "prod";
+        staging = mkBlog "staging";
       };
     });
 

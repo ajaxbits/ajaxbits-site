@@ -1,5 +1,5 @@
 servers:
-  - configuration: wow
+  - configuration: prod
     deployment:
       type: on-branch
       branch: deploy
