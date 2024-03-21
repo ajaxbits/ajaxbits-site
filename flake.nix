@@ -68,9 +68,8 @@
         ));
       in {
         blog = mkBlog "prod";
-        staging = mkBlog "staging";
+        wowzers = mkBlog "staging";
       };
-
     });
 
   nixConfig = {
