@@ -1,5 +1,8 @@
 servers:
-  - configuration: prod
+  - configuration: blog
     deployment:
       type: on-branch
-      branch: deploy
+      branch: main
+  - configuration: staging
+    deployment:
+      type: on-pull-request
