@@ -1,5 +1,5 @@
 servers:
-  - configuration: blog
+  - configuration: wow
     deployment:
       type: on-branch
       branch: deploy

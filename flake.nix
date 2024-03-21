@@ -47,7 +47,7 @@
         };
       };
 
-      flake.nixosConfigurations.blog = withSystem "x86_64-linux" (
+      flake.nixosConfigurations.wow = withSystem "x86_64-linux" (
         {
           config,
           system,
