@@ -1,9 +1,3 @@
-builds:
-  exclude: []
-  include:
-  - '*.x86_64-linux.*'
-  # - 'devShells.aarch64-darwin.*'
-
 servers:
   - configuration: blog
     deployment:
