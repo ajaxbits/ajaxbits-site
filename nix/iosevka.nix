@@ -8,7 +8,10 @@ in
     pname = "IosevkaAjaxbits";
     version = "27.3.5";
 
-    nodejs = pkgs.nodejs_20;
+    nodejs = pkgs.nodejs_20.overrideAttrs (old: {
+      patches = old.patches ++ [./gyp-darwin-sandbox-fix.patch];
+    });
+
     src = pkgs.fetchFromGitHub {
       owner = "be5invis";
       repo = "iosevka";
