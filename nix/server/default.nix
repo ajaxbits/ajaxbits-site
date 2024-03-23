@@ -3,7 +3,7 @@
   packages,
   ...
 }: let
-  port = 80;
+  port = 8787;
 in {
   imports = [
     ./hardening.nix
@@ -13,7 +13,13 @@ in {
   services.static-web-server = {
     enable = true;
     root = packages.${tier};
-    listen = "[::]:${toString port}";
+    listen = "localhost:${toString port}";
   };
-  networking.firewall.allowedTCPPorts = [port];
+  services.nginx = {
+    enable = true;
+    virtualHosts."_".locations."/" = {
+      recommendedProxySettings = true;
+      proxyPass = "http://localhost:${toString port}";
+    };
+  };
 }
