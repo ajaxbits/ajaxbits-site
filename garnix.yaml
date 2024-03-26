@@ -1,12 +1,12 @@
 servers:
-  - configuration: blogProd
+  - configuration: prod
     deployment:
       type: on-branch
       branch: main
-  - configuration: blogProd
+  - configuration: prod
     deployment:
       type: on-pull-request
-  - configuration: blogStaging
+  - configuration: staging
     deployment:
       type: on-branch
       branch: staging
