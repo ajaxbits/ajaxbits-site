@@ -2,6 +2,7 @@ baseURL = 'https://ajaxbits.com/'
 languageCode = 'en-us'
 title = 'ajaxbits'
 enableEmoji = true
+enableRobotsTXT = true
 
 [markup]
   [markup.highlight]

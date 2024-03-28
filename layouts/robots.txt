@@ -1,27 +1,3 @@
-# Used for many other (non-commercial) purposes as well
-User-agent: CCBot
-Disallow: /
-
-# For new training only
-User-agent: GPTBot
-Disallow: /
-
-# Not for training, only for user requests 
-User-agent: ChatGPT-User
-Disallow: /
-
-# Marker for disabling Bard and Vertex AI
-User-agent: Google-Extended
-Disallow: /
-
-# Speech synthesis only?
-User-agent: FacebookBot
-Disallow: /
-
-# Multi-purpose, commercial uses; including LLMs
-User-agent: Omgilibot
-Disallow: /
-
 # github.com/ai-robots-txt/ai.robots.txt
 User-agent: AdsBot-Google
 User-agent: Amazonbot
@@ -47,4 +23,6 @@ User-agent: peer39_crawler
 User-agent: peer39_crawler/1.0
 User-agent: PerplexityBot
 User-agent: YouBot
-Disallow: /
+{{ range .Pages }}
+Disallow: {{ .RelPermalink }}
+{{ end }}
