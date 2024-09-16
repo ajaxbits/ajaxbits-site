@@ -1,13 +1,23 @@
 {{ define "main" }}
 <section>
-  <h2 class="mb-2">Posts</h2>
-  <ul class="min-h-72">
-    {{ range where .Site.RegularPages "Type" "posts" }}
-    <li class="mb-2 flex w-full list-inside list-disc justify-between">
-      <a class="text-xl underline underline-offset-2" href="{{ .RelPermalink }}">{{ .Title }}</a>
-      <p class="text-sm italic">{{.Date.Format "01/02/06"}}</p>
-    </li>
-    {{ end }}
-  </ul>
+    <h2 class="mb-2">Posts</h2>
+    <ul class="min-h-72">
+        {{ range where .Site.RegularPages "Type" "posts" }}
+        <li class="mb-2 flex w-full list-inside list-disc justify-between">
+            <a class="text-xl underline underline-offset-2" href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <p class="text-sm italic">{{.Date.Format "01/02/06"}}</p>
+        </li>
+        {{ end }}
+    </ul>
+    <div id="webrings" class="flex justify-center items-center">
+        <div class="flex-col">
+            <a class="flex justify-center items-center italic" href="https://nixwebr.ing">nix webring</a>
+            <div class="flex items-center gap-x-4">
+                <a class="" href="https://nixwebr.ing/prev/poz">&lt;- prev</a>
+                <a class="" href="https://nixwebr.ing/rand">random</a>
+                <a class="" href="https://nixwebr.ing/next/poz">next -&gt;</a>
+            </div>
+        </div>
+    </div>
 </section>
 {{ end }}
