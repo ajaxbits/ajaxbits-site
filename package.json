@@ -4,6 +4,6 @@
   "dependencies": {
     "@tailwindcss/typography": "^0.5.15",
     "postcss-import": "^16.1.0",
-    "prettier-plugin-tailwindcss": "^0.6.8"
+    "prettier-plugin-tailwindcss": "^0.6.9"
   }
 }
